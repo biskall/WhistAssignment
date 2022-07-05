@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  app:
+    build: ./whist-app
+    ports:
+      - 4200:4200
+    # --host 0.0.0.0 to listen to all the interfaces from the container (dev env)
+    links : 
+      - server
+  server:
+    build: ./whist-server
+    ports:
+      - 3000:3000
