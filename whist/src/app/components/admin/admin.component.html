@@ -1,0 +1,52 @@
+<h1>Admin</h1>
+
+<div class="demo-button-container">
+  <app-add-data></app-add-data>
+</div>
+<section class="empty" *ngIf="this.products.length > 0">
+<table mat-table [dataSource]="this.products" class="mat-elevation-z8 demo-table">
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let element">{{element.title}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let element">{{element.price}}$</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element">{{element.description}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="options" >
+    <th class="th-options" mat-header-cell *matHeaderCellDef>options</th>
+    <td class="td-options" mat-cell *matCellDef="let element">
+      <app-edit-data [element]="element"></app-edit-data>
+      <button class="delete-button" mat-raised-button color="warn" (click)="removeData(element.id)">
+        Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="image">
+    <th class="th-image" mat-header-cell *matHeaderCellDef>Image</th>
+    <td class="td-image" mat-cell *matCellDef="let element">
+      <img src={{element.image}} class="image-admin" alt="..." />
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+</table>
+</section>
+
+<section class="empty" *ngIf="this.products.length <= 0">
+   <h2>No have products yet</h2>
+</section>

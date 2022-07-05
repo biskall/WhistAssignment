@@ -1,0 +1,26 @@
+<h1>Home</h1>
+<app-cart (cleanCart)="checkCart($any($event))" [element]="this.cart"></app-cart>
+
+<section class="mt-12" multi="true" *ngIf="this.products.length > 0">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-4" *ngFor="let product of products">
+        <div class="card" style="width: 18rem;">
+          <img src={{product.image}} class="card-in-top"/>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Title : </strong> {{product.title}}</li>
+            <li class="list-group-item"><strong>Description : </strong> {{product.description}}</li>
+            <li class="list-group-item"><strong>Price : </strong> {{product.price}}$</li>
+          </ul>
+          <div class="card-body">
+            <button mat-raised-button class="card-link" (click)="addToCart(product)" >Buy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="empty" *ngIf="this.products.length <= 0">
+  <h2>No have products yet</h2>
+</section>

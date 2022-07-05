@@ -1,0 +1,36 @@
+<h1>stats</h1>
+<section *ngIf="this.products.length > 0" >
+<div class="stats-row">
+  <div class="row">
+    <div class="col-md-4">
+      <li class="list-group-item active header">Past 5 days</li>
+      <div *ngFor="let data of arrayOfDays">
+      <ul class="list-group">
+        <li class="list-group-item">{{data.dateString}}: {{data.totalPrice}}$</li>
+      </ul>
+    </div>
+    </div>
+    <div class="col-md-4">
+      <li class="list-group-item active header">Top 5 sold</li>
+      <div *ngFor="let data of ProductsSortBySold">
+      <ul class="list-group">
+        <li class="list-group-item">{{data.title}}: {{data.sold}}</li>
+      </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <li class="list-group-item active header">Top 5 unique</li>
+      <div *ngFor="let data of productSortByU">
+        <ul class="list-group">
+          <li class="list-group-item">{{data.title}}: {{data.unique}}</li>
+        </ul>
+        </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="empty" *ngIf="this.products.length <= 0">
+  <h2>No have products yet</h2>
+</section>
+

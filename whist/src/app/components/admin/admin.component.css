@@ -1,0 +1,53 @@
+
+.demo-table {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+  margin-left: 73%;
+  margin-right: auto;
+}
+
+.empty{
+  text-align: center;
+}
+
+.td-options{
+  text-align: center;
+}
+
+.th-options{
+  text-align: center;
+}
+
+.delete-button{
+  margin-left: 10px;
+}
+
+.th-image{
+  text-align: right;
+}
+
+.td-image{
+  text-align: right;
+}
+
+h1 {
+  background-color: var(--vender-cyan);
+  font-size: 35px; font-weight: 800;
+  line-height: 90px;
+  margin: 10px 0 24px;
+  text-align: center;
+}
+
+.image-admin{
+  width: 30px;
+  height: 30px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
